@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
+import useForm from "../../Hooks/useForm";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const username = useForm();
+  const password = useForm();
+  console.log(username);
+  console.log(password);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,8 +32,8 @@ const LoginForm = () => {
     <section>
       <h1>login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <Input label="Usuário" type="text" name={"username"} />
-        <Input label="Senha" type="password" name={"password"} />
+        <Input label="Usuário" type="text" name={"username"} {...username} />
+        <Input label="Senha" type="password" name={"password"}  {...password}/>
         <Button>Entrar</Button>
       </form>
       <Link to="/login/criar">Cadastro</Link>
