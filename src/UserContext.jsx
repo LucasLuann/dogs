@@ -30,7 +30,7 @@ export const UserStorage = ({ children }) => {
       }
     };
     autoLogin();
-  });
+  }, []);
 
   const getUser = async (token) => {
     const { url, options } = USER_GET(token);
